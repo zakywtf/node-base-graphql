@@ -1,6 +1,6 @@
 const graphql = require('graphql')
 const { book, books, addBook } = require('../model/bookModel')
-const { author, authorss, addAuthor } = require('../model/authorModel')
+const { author, authors, addAuthor } = require('../model/authorModel')
 const { GraphQLObjectType, GraphQLSchema } = graphql;
 
 // console.log({book,books,addBook});
@@ -10,16 +10,15 @@ const RootQuery = new GraphQLObjectType({
     fields: {
         book,
         books,
-        authorss
+        author,
+        authors
     }
 });
 
 const Mutation = new GraphQLObjectType({
     name: 'Mutation',
     fields: {
-        // addBook:{
-            addBook,
-        // },
+        addBook,
         addAuthor
     }
 });

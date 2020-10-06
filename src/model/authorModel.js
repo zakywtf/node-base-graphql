@@ -45,7 +45,7 @@ const author = {
     }
 }
 
-const authorss = {
+const authors = {
     type: new GraphQLList(AuthorType),
     resolve(parent, args) {
         return AuthorSchema.find({});
@@ -69,6 +69,6 @@ const addAuthor = {
 
 module.exports = {
     author,
-    authorss,
+    authors,
     addAuthor
 }
