@@ -1,41 +1,11 @@
 const graphql = require('graphql')
+const {BookType} = require('../clases/objectTypeMaster')
 const Book = require('../schema/book')
-const Author = require('../schema/author')
 const { 
     GraphQLObjectType, GraphQLString, 
     GraphQLID, GraphQLInt,GraphQLSchema, 
     GraphQLList,GraphQLNonNull 
 } = graphql;
-
-const BookType = new GraphQLObjectType({
-    name: 'Book',
-    fields: () => ({
-        id: { type: GraphQLID  },
-        name: { type: GraphQLString }, 
-        pages: { type: GraphQLInt },
-        author: {
-        type: AuthorType,
-        resolve(parent, args) {
-            return Author.findById(parent.authorID);
-        }
-    }
-    })
-});
-
-const AuthorType = new GraphQLObjectType({
-    name: 'Author',
-    fields: () => ({
-        id: { type: GraphQLID },
-        name: { type: GraphQLString },
-        age: { type: GraphQLInt },
-        book:{
-            type: new GraphQLList(BookType),
-            resolve(parent,args){
-                return Book.find({ authorID: parent.id });
-            }
-        }
-    })
-})
 
 const book = {
     type: BookType,
