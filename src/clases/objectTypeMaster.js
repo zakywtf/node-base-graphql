@@ -7,7 +7,7 @@ const {
     GraphQLList,GraphQLNonNull 
 } = graphql;
 
-const BookType = new GraphQLObjectType({
+const BookType = new GraphQLObjectType({  // create book graphql object
     name: 'Book',
     fields: () => ({
         id: { type: GraphQLID  },
@@ -22,7 +22,7 @@ const BookType = new GraphQLObjectType({
     })
 });
 
-const AuthorType = new GraphQLObjectType({
+const AuthorType = new GraphQLObjectType({  // create author graphql object
     name: 'Author',
     fields: () => ({
         id: { type: GraphQLID },

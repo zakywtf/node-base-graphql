@@ -7,7 +7,7 @@ const {
     GraphQLList,GraphQLNonNull 
 } = graphql;
 
-const author = {
+const author = { // get author by id
     type: AuthorType,
     args: { id: { type: GraphQLID } },
     resolve(parent, args) {
@@ -15,14 +15,14 @@ const author = {
     }
 }
 
-const authors = {
+const authors = {  // get all authors
     type: new GraphQLList(AuthorType),
     resolve(parent, args) {
         return AuthorSchema.find({});
     }
 }
 
-const addAuthor = {
+const addAuthor = {  // add author in graphql and mongodb
     type: AuthorType,
     args: {
         name: { type: new GraphQLNonNull(GraphQLString) },

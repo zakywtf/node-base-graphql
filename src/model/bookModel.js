@@ -7,7 +7,7 @@ const {
     GraphQLList,GraphQLNonNull 
 } = graphql;
 
-const book = {
+const book = {  //  get book by id
     type: BookType,
     args: { id: { type: GraphQLID } },
     resolve(parent, args) {
@@ -16,14 +16,14 @@ const book = {
     
 }
 
-const books = {
+const books = {  // get all books
     type: new GraphQLList(BookType),
     resolve(parent, args) {
         return Book.find({});
     }
 }
 
-const addBook = {
+const addBook = {  // add book in graphql and mongodb
     type:BookType,
     args:{
         name: { type: new GraphQLNonNull(GraphQLString)},
