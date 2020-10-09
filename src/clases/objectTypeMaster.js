@@ -8,7 +8,7 @@ const {
 } = graphql;
 
 const BookType = new GraphQLObjectType({
-    name: 'test_book',
+    name: 'Book',
     fields: () => ({
         id: { type: GraphQLID  },
         name: { type: GraphQLString }, 
@@ -23,7 +23,7 @@ const BookType = new GraphQLObjectType({
 });
 
 const AuthorType = new GraphQLObjectType({
-    name: 'test_author',
+    name: 'Author',
     fields: () => ({
         id: { type: GraphQLID },
         name: { type: GraphQLString },
